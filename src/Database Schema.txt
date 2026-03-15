@@ -1,24 +1,40 @@
 Database Schema
 
-Tables
+----------Tables
 
-logs:-
 
-id
-timestamp
-level
-service
-message
-file_name
+CREATE TABLE logs (
+    id NUMBER PRIMARY KEY,
+    upload_id NUMBER NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    level VARCHAR2(20) NOT NULL,
+    service VARCHAR2(100),
+    message VARCHAR2(2000),
+    CONSTRAINT fk_upload
+        FOREIGN KEY (upload_id)
+        REFERENCES uploads(id)
+);
 
-uploads:-
 
-id
-file_name
-upload_time
-total_lines
+CREATE TABLE uploads (
+    id NUMBER PRIMARY KEY,
+    file_name VARCHAR2(255) NOT NULL,
+    upload_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_lines NUMBER,
+    corrupt_lines NUMBER
+);
 
-Sequence:-
+--------Sequence:-
 
-logs_seq
-uploads_seq
+CREATE SEQUENCE logs_seq START WITH 1;
+CREATE SEQUENCE uploads_seq START WITH 1;
+
+--------indexes:-
+
+CREATE INDEX idx_logs_level ON logs(level);
+
+CREATE INDEX idx_logs_service ON logs(service);
+
+CREATE INDEX idx_logs_timestamp ON logs(timestamp);
+
+CREATE INDEX idx_logs_upload ON logs(upload_id);
