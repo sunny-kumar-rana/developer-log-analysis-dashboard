@@ -1,14 +1,15 @@
 package com.logtool.model;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class LogEntry {
     private long id;
+    private long uploadId;
     private LocalDateTime timestamp;
     private String level;
     private String service;
     private String message;
-    private String fileName;
 
     public long getId() {
         return id;
@@ -16,6 +17,14 @@ public class LogEntry {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getUploadId() {
+        return uploadId;
+    }
+
+    public void setUploadId(long uploadId) {
+        this.uploadId = uploadId;
     }
 
     public LocalDateTime getTimestamp() {
@@ -48,13 +57,5 @@ public class LogEntry {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
     }
 }

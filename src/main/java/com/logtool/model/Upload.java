@@ -1,42 +1,23 @@
 package com.logtool.model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Upload {
-    private long id;
+
+    private int id;
     private String fileName;
-    private LocalDateTime timeStamp;
+    private Timestamp uploadTime;
     private int totalLines;
 
-    public long getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public String getFileName() { return fileName; }
+    public void setFileName(String fileName) { this.fileName = fileName; }
 
-    public String getFileName() {
-        return fileName;
-    }
+    public Timestamp getUploadTime() { return uploadTime; }
+    public void setUploadTime(Timestamp uploadTime) { this.uploadTime = uploadTime; }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(LocalDateTime timeStamp) {
-        this.timeStamp = timeStamp;
-    }
-
-    public int getTotalLines() {
-        return totalLines;
-    }
-
-    public void setTotalLines(int totalLines) {
-        this.totalLines = totalLines;
-    }
+    public int getTotalLines() { return totalLines; }
+    public void setTotalLines(int totalLines) { this.totalLines = totalLines; }
 }
