@@ -6,9 +6,8 @@ import com.logtool.util.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class uploadDAO {
+public class UploadDAO {
     public long saveUpload(Upload upload){
         String query = "INSERT INTO uploads(id, file_name, upload_time, total_lines, corrupt_lines) VALUES (uploads_seq.NEXTVAL, ?, ?, ?, ?)";
 
