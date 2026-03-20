@@ -58,6 +58,9 @@ public class LogParser {
             if(le != null){
                 entries.add(le);
             }
+            if(le == null){
+                corruptLogs++;
+            }
 
         }
         return entries;

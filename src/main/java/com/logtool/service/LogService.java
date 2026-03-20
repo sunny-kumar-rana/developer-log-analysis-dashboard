@@ -47,9 +47,11 @@ public class LogService {
                     logDAO.saveBatch(logs);
                     logs.clear();
                 }
-                if (!logs.isEmpty()){
-                    logDAO.saveBatch(logs);
-                }
+            }
+
+            upload.setTotalLines(lines);
+            if (!logs.isEmpty()){
+                logDAO.saveBatch(logs);
             }
 
         } catch (IOException e){
